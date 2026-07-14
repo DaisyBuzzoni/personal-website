@@ -1,0 +1,760 @@
+:root {
+	--background: #f8f8f4;
+	--text: #2d3138;
+	--ocean: #0d3b66;
+	--sea-glass: #5b8e7d;
+	--coral: #e58c73;
+	--surface: #ffffff;
+}
+
+/* ----------------------------------------
+   Global styles
+---------------------------------------- */
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: var(--background);
+	color: var(--text);
+	font-family: "Inter", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: var(--ocean);
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 600;
+	letter-spacing: 0;
+}
+
+a {
+	color: var(--ocean);
+}
+
+a:hover {
+	color: var(--coral);
+}
+
+.button.primary {
+	background-color: var(--ocean);
+}
+
+.button.primary:hover {
+	background-color: var(--sea-glass);
+}
+
+/* Navigation */
+
+#nav {
+	background: rgba(248, 248, 244, 0.96);
+}
+
+#nav ul li a {
+	color: var(--text);
+	font-weight: 500;
+	border-radius: 8px;
+}
+
+#nav ul li a:hover {
+	color: #ffffff !important;
+	background-color: var(--sea-glass) !important;
+}
+
+#nav ul li a.active {
+	color: #ffffff !important;
+	background-color: var(--ocean) !important;
+	box-shadow: none !important;
+}
+
+#nav ul li a.active:hover {
+	color: #ffffff !important;
+	background-color: var(--sea-glass) !important;
+}
+/* ----------------------------------------
+   Main section backgrounds
+---------------------------------------- */
+
+#main {
+	background: var(--surface);
+}
+
+#projects {
+	background: #f1f4f0;
+}
+
+#skills {
+	background: #ffffff;
+}
+
+#ocean-art {
+	background: #eef4f3;
+}
+
+#cv {
+	background: #f8f3ef;
+}
+
+/* ----------------------------------------
+   Small section label
+---------------------------------------- */
+
+.eyebrow {
+	color: var(--sea-glass);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.18em;
+	margin-bottom: 0.5rem;
+	text-transform: uppercase;
+}
+
+/* ----------------------------------------
+   Hero section
+---------------------------------------- */
+
+/* Hero section */
+
+#header.hero {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+
+	min-height: 88vh;
+	padding: 7rem 10vw 5rem 6vw;
+
+	overflow: hidden;
+
+	background-image: url("../../images/hero-snorkelling.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+
+	text-align: left;
+}
+
+#header.hero .hero-overlay {
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(
+			to right,
+			rgba(8,31,48,0.18) 0%,
+			rgba(8,31,48,0.28) 35%,
+			rgba(8,31,48,0.48) 100%
+		);
+}
+
+#header.hero .hero-content {
+	position: absolute;
+	z-index: 1;
+
+	top: 50%;
+	left: 54%;
+	right: 5%;
+
+	width: auto;
+	max-width: none;
+	margin: 0;
+
+	transform: translateY(-47%);
+	color: #ffffff;
+	text-align: left;
+}
+
+#header.hero h1 {
+	color: #ffffff;
+	font-size: clamp(3.2rem, 5vw, 5rem);
+	line-height: 0.95;
+	margin-bottom: 0.45em;
+	text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
+}
+
+#header.hero .role {
+	color: #ffffff;
+	font-size: 1.15rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	margin-bottom: .35rem;
+	text-transform: uppercase;
+}
+
+#header.hero .pronouns {
+	color: #ffffff;
+	font-size: 1.15rem;
+	font-weight: 400;
+	letter-spacing: .03em;
+	margin-bottom: 2rem;
+	opacity: .95;
+}
+
+#header.hero .tagline {
+	color: #ffffff;
+	font-family: "Cormorant Garamond", serif;
+	font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+	line-height: 1.4;
+	max-width: none;
+	margin: 0;
+	text-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+}
+
+.hero-scroll {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	margin-top: 2.75rem;
+
+	color: #ffffff;
+	font-size: .95rem;
+	font-weight: 600;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+
+	text-decoration: none !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.hero-scroll:hover,
+.hero-scroll:focus {
+	color: #ffffff;
+	text-decoration: none !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.hero-scroll::after,
+.hero-scroll::before {
+	display: none !important;
+	content: none !important;
+}
+
+.hero-arrow {
+	font-size: 2rem;
+	margin-top: .35rem;
+	border: none !important;
+	box-shadow: none !important;
+	animation: hero-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-bounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+
+	50% {
+		transform: translateY(7px);
+	}
+}
+
+.photo-credit,
+#header.hero .photo-credit {
+	position: absolute;
+	right: 0.6rem;
+	bottom: 0.45rem;
+	z-index: 20;
+
+	margin: 0 !important;
+	padding: 0 !important;
+
+	font-family: "Inter", sans-serif !important;
+	font-size: 9px !important;
+	font-weight: 400 !important;
+	line-height: 1 !important;
+	letter-spacing: 0.04em !important;
+
+	color: rgba(255, 255, 255, 0.48) !important;
+
+	background: transparent !important;
+	border: 0 !important;
+	box-shadow: none !important;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+
+	pointer-events: none;
+	user-select: none;
+}
+
+.photo-credit-left,
+.about-details-image .photo-credit-left {
+	left: 0.6rem;
+	right: auto;
+	bottom: 0.45rem;
+}
+/* ----------------------------------------
+   About section
+---------------------------------------- */
+
+#about.about-feature {
+	padding: 0;
+	background: var(--surface);
+}
+
+/* Frigatebird image */
+
+.about-hero {
+	position: relative;
+	width: 100%;
+	height: clamp(30rem, 48vw, 44rem);
+	overflow: hidden;
+}
+
+.about-hero > img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+/* Blur and darken only the bush area behind the text */
+
+.about-hero-shade {
+	position: absolute;
+
+	top: 40%;
+	right: 4%;
+	bottom: 8%;
+	left: 51%;
+
+	background: rgba(8, 31, 48, 0.48);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 0.4rem;
+
+	-webkit-backdrop-filter: blur(14px);
+	backdrop-filter: blur(14px);
+
+	box-shadow: 0 1rem 3rem rgba(8, 31, 48, 0.18);
+}
+
+/* Position the introduction over the blurred bush */
+
+/* Two blurred text panels over the About image */
+
+.about-hero-shade {
+	display: none;
+}
+
+/* Shared styling for both About text panels */
+
+.about-hero-text {
+	position: absolute;
+	z-index: 1;
+
+	padding: 1.5rem 1.8rem;
+
+	background: rgba(8, 31, 48, 0.5);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 0.4rem;
+
+	-webkit-backdrop-filter: blur(12px);
+	backdrop-filter: blur(12px);
+
+	box-shadow: 0 1rem 3rem rgba(8, 31, 48, 0.14);
+}
+
+.about-hero-text p {
+	margin: 0;
+
+	color: #ffffff;
+	font-family: "Cormorant Garamond", serif;
+	font-size: clamp(1.19rem, 1.78vw, 1.69rem);
+	line-height: 1.42;
+
+	text-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+}
+
+/* Wider left box */
+
+.about-hero-text-top {
+	top: 5%;
+	left: 3%;
+
+	width: min(49rem, 54%);
+}
+
+/* Lower right box */
+
+.about-hero-text-right {
+	top: 76%;
+	right: 3%;
+
+	width: min(36rem, 40%);
+
+	transform: translateY(-50%);
+}
+/* Detailed About content */
+
+.about-details {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(0, 1.25fr) minmax(24rem, 0.75fr);
+	align-items: stretch;
+
+	width: 100%;
+	max-width: none;
+	min-height: 48rem;
+	margin: 0;
+
+	background: var(--surface);
+}
+
+.about-details-image {
+	position: relative;
+	min-height: 48rem;
+	overflow: hidden;
+}
+
+.about-details-image img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.about-details-fade {
+	position: absolute;
+	inset: 0;
+
+	background:
+		linear-gradient(
+			90deg,
+			rgba(255, 255, 255, 0) 58%,
+			rgba(255, 255, 255, 0.45) 76%,
+			rgba(255, 255, 255, 0.92) 94%,
+			#ffffff 100%
+		);
+
+	pointer-events: none;
+}
+
+.about-details-text {
+	position: relative;
+	z-index: 2;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	margin-left: -5rem;
+	padding: 5rem 4rem 5rem 1rem;
+
+	max-width: 38rem;
+}
+
+.about-details-text .about-intro {
+	color: var(--ocean);
+	font-family: "Cormorant Garamond", serif;
+	font-size: clamp(1.8rem, 3vw, 2.5rem);
+	line-height: 1.35;
+}
+
+.about-details-text p {
+	line-height: 1.75;
+}
+
+
+/* Tablet */
+
+@media screen and (max-width: 980px) {
+	.about-hero-text {
+		left: 5%;
+		width: 50%;
+	}
+
+	.about-details {
+		grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.8fr);
+		min-height: 42rem;
+	}
+
+	.about-details-image {
+		min-height: 42rem;
+	}
+
+	.about-details-text {
+		margin-left: -3rem;
+		padding: 4rem 2.5rem 4rem 1rem;
+	}
+}
+
+/* Mobile */
+
+@media screen and (max-width: 736px) {
+	.about-hero {
+		height: 32rem;
+	}
+
+	.about-hero > img {
+		object-position: 42% center;
+	}
+
+	.about-hero-shade {
+		background:
+			linear-gradient(
+				to bottom,
+				rgba(8, 31, 48, 0.08) 0%,
+				rgba(8, 31, 48, 0.25) 45%,
+				rgba(8, 31, 48, 0.84) 100%
+			);
+	}
+
+		.about-hero-text {
+		left: 1.5rem;
+		right: 1.5rem;
+		width: auto;
+		padding: 1.25rem 1.4rem;
+	}
+
+	.about-hero-text-top {
+		top: 7%;
+	}
+
+	.about-hero-text-right {
+		top: auto;
+		bottom: 2rem;
+		transform: none;
+	}
+
+	.about-hero-text p {
+		font-size: 1.35rem;
+	}
+.about-details {
+		display: block;
+		min-height: auto;
+	}
+
+	.about-details-image {
+		min-height: 0;
+		height: auto;
+	}
+
+	.about-details-image img {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.about-details-fade {
+		display: none;
+	}
+
+	.about-details-text {
+		margin: 0;
+		padding: 3.5rem 1.75rem 4rem;
+		max-width: none;
+	}
+}
+
+/* ----------------------------------------
+   Placeholder sections
+---------------------------------------- */
+
+.section-placeholder {
+	padding: 3rem 1rem;
+	border: 1px dashed rgba(13, 59, 102, 0.2);
+	border-radius: 0.5rem;
+	color: rgba(45, 49, 56, 0.65);
+}
+
+/* ----------------------------------------
+   Footer and social icons
+---------------------------------------- */
+
+#contact {
+	color: var(--text);
+}
+
+#contact h2 {
+	color: var(--ocean);
+}
+
+#contact ul.icons li a,
+#contact ul.icons li a::before {
+	color: var(--ocean) !important;
+	border-color: rgba(13, 59, 102, 0.25);
+}
+
+#contact ul.icons li a:hover,
+#contact ul.icons li a:hover::before {
+	color: var(--coral) !important;
+	border-color: var(--coral);
+}
+
+/* ----------------------------------------
+   Tablet layout
+---------------------------------------- */
+
+@media screen and (max-width: 980px) {
+	#header.hero {
+		padding: 5rem 4vw;
+		background-position: 40% center;
+	}
+
+	#header.hero .hero-content {
+		width: min(38rem, 52%);
+	}
+
+	#header.hero h1 {
+		font-size: clamp(3.2rem, 6vw, 5rem);
+	}
+
+	#header.hero .role {
+		font-size: 0.95rem;
+	}
+
+}
+
+/* ----------------------------------------
+   Mobile layout
+---------------------------------------- */
+
+@media screen and (max-width: 736px) {
+	#header.hero {
+		justify-content: flex-end;
+		min-height: 82vh;
+		padding: 4rem 1.5rem 3rem;
+
+		background-position: 43% center;
+		text-align: center;
+	}
+
+	#header.hero .hero-overlay {
+		background:
+			linear-gradient(
+				to bottom,
+				rgba(5, 28, 47, 0.06) 0%,
+				rgba(5, 28, 47, 0.28) 42%,
+				rgba(5, 28, 47, 0.84) 100%
+			);
+	}
+
+	#header.hero .hero-content {
+		position: relative;
+
+		top: auto;
+		left: auto;
+		right: auto;
+
+		width: 100%;
+		max-width: none;
+		margin-top: auto;
+
+		transform: none;
+		text-align: center;
+	}
+
+
+	#header.hero h1 {
+		font-size: clamp(3rem, 13vw, 4.5rem);
+	}
+
+	#header.hero .role {
+		font-size: 0.85rem;
+		line-height: 1.5;
+	}
+
+	#header.hero .pronouns {
+		font-size: 1rem;
+	}
+
+	#header.hero .tagline {
+		max-width: 34rem;
+		margin: 1.25rem auto 0;
+	}
+
+	.hero-scroll {
+		align-items: center;
+	}
+
+
+}
+/* ----------------------------------------
+   Contact section
+---------------------------------------- */
+
+#contact {
+	display: block;
+	padding-top: 4rem;
+	padding-bottom: 3rem;
+	color: var(--text);
+}
+
+#contact .contact-intro {
+	width: 100%;
+	margin: 0;
+}
+
+#contact h2 {
+	color: var(--ocean);
+}
+
+#contact .contact-email {
+	margin: 1.75rem 0 2rem;
+	font-size: 1.15rem;
+}
+
+#contact .contact-email a {
+	color: var(--ocean);
+	text-decoration: none;
+	border-bottom: 1px solid rgba(13, 59, 102, 0.35);
+}
+
+#contact .contact-email a:hover {
+	color: var(--coral);
+	border-bottom-color: var(--coral);
+}
+
+#contact .contact-icons {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.85rem;
+	margin: 0 0 3rem;
+	padding: 0;
+}
+
+#contact .contact-icons li {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+#contact .contact-icons li a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 3rem;
+	height: 3rem;
+
+	color: var(--ocean) !important;
+	border: 1px solid rgba(13, 59, 102, 0.25);
+	border-radius: 50%;
+
+	font-size: 1.25rem;
+	text-decoration: none;
+}
+
+#contact .contact-icons li a::before {
+	color: inherit !important;
+	font-family: "Font Awesome 6 Brands" !important;
+}
+
+#contact .contact-icons li a:hover {
+	color: #ffffff !important;
+	background: var(--sea-glass);
+	border-color: var(--sea-glass);
+}
+
+#contact .copyright {
+	width: 100%;
+	margin: 0;
+	font-size: 0.85rem;
+}
