@@ -58,54 +58,49 @@
 		<script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-
-  "@id": "https://daisybuzzoni.com/#person",
-
-  "name": "Dr Daisy Buzzoni",
-
-  "honorificPrefix": "Dr",
-
-  "url": "https://daisybuzzoni.com",
-
-  "image": "https://daisybuzzoni.com/images/hero-snorkelling.jpg",
-  "logo": {
-  "@type": "ImageObject",
-  "url": "https://daisybuzzoni.com/images/favicon/logo-primary.svg"
-},
-"mainEntityOfPage": {
-  "@type": "WebPage",
-  "@id": "https://daisybuzzoni.com"
-},
-
-  "jobTitle": [
-    "Marine Ecologist and Science Communicator"
-  ],
-
-  "description": "Marine ecologist, marine scientist and science communicator exploring coral reefs, climate change and creative ways to tell the hidden stories of the natural world.",
-
-  "knowsAbout": [
-    "Coral reefs",
-    "Marine ecology",
-    "Coral bleaching",
-    "Climate change",
-    "Symbiodiniaceae",
-    "Coral symbiosis",
-    "Science communication",
-    "Natural history",
-    "Scuba diving",
-    "Conservation biology",
-    "Molecular ecology"
-  ],
-
-  "sameAs": [
-    "https://orcid.org/0000-0001-9304-5248",
-    "https://scholar.google.com/citations?user=JZ5vXVUAAAAJ&hl=en",
-    "https://www.researchgate.net/profile/Daisy-Buzzoni",
-    "https://github.com/DaisyBuzzoni",
-    "https://www.linkedin.com/in/daisy-buzzoni-003637422/",
-    "https://bsky.app/profile/divingmsdaisy.bsky.social",
-    "https://www.instagram.com/divingmsdaisy/"
+  "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://daisybuzzoni.com/#profile-page",
+      "url": "https://daisybuzzoni.com/",
+      "name": "Dr. Daisy Buzzoni | Marine Ecologist & Science Communicator",
+      "description": "Marine ecologist, marine scientist and science communicator exploring coral reefs, climate change and creative ways to tell the hidden stories of the natural world.",
+      "mainEntity": {
+        "@id": "https://daisybuzzoni.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://daisybuzzoni.com/#person",
+      "name": "Dr Daisy Buzzoni",
+      "honorificPrefix": "Dr",
+      "url": "https://daisybuzzoni.com/",
+      "image": "https://daisybuzzoni.com/images/hero-snorkelling.jpg",
+      "jobTitle": "Marine Ecologist and Science Communicator",
+      "description": "Marine ecologist, marine scientist and science communicator exploring coral reefs, climate change and creative ways to tell the hidden stories of the natural world.",
+      "knowsAbout": [
+        "Coral reefs",
+        "Marine ecology",
+        "Coral bleaching",
+        "Climate change",
+        "Symbiodiniaceae",
+        "Coral symbiosis",
+        "Science communication",
+        "Natural history",
+        "Scientific diving",
+        "Conservation biology",
+        "Molecular ecology"
+      ],
+      "sameAs": [
+        "https://orcid.org/0000-0001-9304-5248",
+        "https://scholar.google.com/citations?user=JZ5vXVUAAAAJ&hl=en",
+        "https://www.researchgate.net/profile/Daisy-Buzzoni",
+        "https://github.com/DaisyBuzzoni",
+        "https://www.linkedin.com/in/daisy-buzzoni-003637422/",
+        "https://bsky.app/profile/divingmsdaisy.bsky.social",
+        "https://www.instagram.com/divingmsdaisy/"
+      ]
+    }
   ]
 }
 </script>
