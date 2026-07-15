@@ -487,44 +487,113 @@ a:hover {
 /* Mobile */
 
 @media screen and (max-width: 736px) {
-	.about-hero {
-		height: 32rem;
-	}
+	
 
-	.about-hero > img {
-		object-position: 42% center;
-	}
+	/* Mobile About hero */
 
-	.about-hero-shade {
-		background:
-			linear-gradient(
-				to bottom,
-				rgba(8, 31, 48, 0.08) 0%,
-				rgba(8, 31, 48, 0.25) 45%,
-				rgba(8, 31, 48, 0.84) 100%
-			);
-	}
+.about-hero {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
 
-		.about-hero-text {
-		left: 1.5rem;
-		right: 1.5rem;
-		width: auto;
-		padding: 1.25rem 1.4rem;
-	}
+	width: 100%;
+	height: auto;
+	min-height: 52rem;
 
-	.about-hero-text-top {
-		top: 7%;
-	}
+	padding: 3rem 1.25rem 4.5rem;
+	overflow: hidden;
+}
 
-	.about-hero-text-right {
-		top: auto;
-		bottom: 2rem;
-		transform: none;
-	}
+/* Make the photograph fill the whole mobile section */
 
-	.about-hero-text p {
-		font-size: 1.35rem;
-	}
+.about-hero > img {
+	position: absolute;
+	inset: 0;
+
+	width: 100%;
+	height: 100%;
+
+	object-fit: cover;
+	object-position: 43% center;
+
+	z-index: 0;
+}
+
+/* Gentle overall shading so both boxes remain readable */
+
+.about-hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+
+	background:
+		linear-gradient(
+			to bottom,
+			rgba(8, 31, 48, 0.10) 0%,
+			rgba(8, 31, 48, 0.18) 30%,
+			rgba(8, 31, 48, 0.42) 100%
+		);
+
+	z-index: 0;
+	pointer-events: none;
+}
+
+/* Stack both boxes rather than positioning them independently */
+
+.about-hero-text {
+	position: relative;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+
+	z-index: 2;
+
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	padding: 1.25rem 1.35rem;
+
+	transform: none;
+
+	background: rgba(8, 31, 48, 0.62);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px);
+}
+
+/* Space between the two panels */
+
+.about-hero-text + .about-hero-text {
+	margin-top: 1rem;
+}
+
+/* Prevent the desktop positioning classes overriding this */
+
+.about-hero-text-top,
+.about-hero-text-right {
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+
+	width: 100%;
+	transform: none;
+}
+
+.about-hero-text p {
+	font-size: 1.22rem;
+	line-height: 1.42;
+}
+
+/* Keep the credit attached to the image corner */
+
+.about-hero > .photo-credit {
+	right: 0.75rem;
+	bottom: 0.65rem;
+	z-index: 3;
+}
+	
 .about-details {
 		display: block;
 		min-height: auto;
