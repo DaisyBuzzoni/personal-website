@@ -329,13 +329,29 @@
 	</span>
 </button>
 
-	<!-- Videography placeholder -->
-	<div class="creative-medium-card creative-medium-placeholder">
-		<div class="creative-placeholder-background">
-			<span class="creative-medium-name">Videography</span>
-			<span class="creative-medium-action">Films coming soon</span>
-		</div>
-	</div>
+	<!-- Videography -->
+
+<button
+	class="creative-medium-card"
+	type="button"
+	aria-expanded="false"
+	aria-controls="videography-gallery"
+	data-gallery-toggle="videography-gallery"
+>
+	<img
+		src="images/palau-thumbnail.webp"
+		alt="Underwater fieldwork in Palau"
+		loading="lazy"
+		decoding="async"
+	>
+
+	<span class="creative-medium-overlay">
+		<span class="creative-medium-name">Videography</span>
+		<span class="creative-medium-action">
+			Watch fieldwork highlights →
+		</span>
+	</span>
+</button>
 
 	<!-- Ceramics gallery begins here -->
 	<div
@@ -345,7 +361,9 @@
 	>
 	
 			<div class="art-gallery-heading">
-
+<div>
+			<h3>Ceramics</h3>
+		</div>
 				<button
 					class="gallery-close"
 					type="button"
@@ -503,6 +521,9 @@
 	hidden
 >
 	<div class="art-gallery-heading">
+		<div>
+			<h3>Photography</h3>
+		</div>
 		<button
 			class="gallery-close"
 			type="button"
@@ -892,6 +913,122 @@
 	</div>
 
 </div>
+<!-- =========================================================
+     Videography gallery
+========================================================= -->
+
+<div
+	id="videography-gallery"
+	class="art-gallery videography-panel"
+	hidden
+>
+	<div class="art-gallery-heading">
+		<div>
+			<h3>Videography</h3>
+		</div>
+
+		<button
+			class="gallery-close"
+			type="button"
+			data-gallery-close="videography-gallery"
+			aria-label="Close videography gallery"
+		>
+			&times;
+		</button>
+	</div>
+
+	<div class="video-card-grid">
+
+		<!-- Palau -->
+
+		<button
+			class="video-card"
+			type="button"
+			data-video-id="cK4vFbXObv0"
+			data-video-title="Palau fieldwork highlights 2022"
+			aria-label="Play Palau fieldwork highlights 2022"
+		>
+			<span class="video-card-image">
+
+				<img
+					src="images/palau-thumbnail.webp"
+					alt=""
+					loading="lazy"
+					decoding="async"
+				>
+
+				<span class="video-card-shade"></span>
+
+				<span class="video-play-icon" aria-hidden="true">
+					<span class="video-play-triangle"></span>
+				</span>
+
+				<img
+					class="video-card-logo"
+					src="images/favicon/logo-primary.svg"
+					alt=""
+					aria-hidden="true"
+				>
+
+				<span class="video-duration">2:51</span>
+
+			</span>
+
+			<span class="video-card-copy">
+				<span class="video-card-location">Fieldwork highlights</span>
+				<span class="video-card-title">
+					Palau 2022
+				</span>
+			</span>
+		</button>
+
+
+		<!-- Kiritimati -->
+
+		<button
+			class="video-card"
+			type="button"
+			data-video-id="wa1emQ1bcLA"
+			data-video-title="Kiritimati fieldwork highlights 2023"
+			aria-label="Play Kiritimati fieldwork highlights 2023"
+		>
+			<span class="video-card-image">
+
+				<img
+					src="images/kiritimati-thumbnail.webp"
+					alt=""
+					loading="lazy"
+					decoding="async"
+				>
+
+				<span class="video-card-shade"></span>
+
+				<span class="video-play-icon" aria-hidden="true">
+					<span class="video-play-triangle"></span>
+				</span>
+
+				<img
+					class="video-card-logo"
+					src="images/favicon/logo-primary.svg"
+					alt=""
+					aria-hidden="true"
+				>
+
+				<span class="video-duration">3:44</span>
+
+			</span>
+
+			<span class="video-card-copy">
+				<span class="video-card-location">Fieldwork highlights</span>
+
+				<span class="video-card-title">
+					Kiritimati 2023
+				</span>
+			</span>
+		</button>
+
+	</div>
+</div>
 	</div>
 </section>
 
@@ -1093,6 +1230,133 @@
 		});
 	});
 </script>
+<!-- =========================================================
+     Video modal
+========================================================= -->
 
+<div
+	id="video-modal"
+	class="video-modal"
+	role="dialog"
+	aria-modal="true"
+	aria-labelledby="video-modal-title"
+	hidden
+>
+	<div
+		class="video-modal-backdrop"
+		data-video-close
+	></div>
+
+	<div class="video-modal-dialog">
+
+		<div class="video-modal-header">
+			<h2 id="video-modal-title">
+				Fieldwork highlights
+			</h2>
+
+			<button
+				class="video-modal-close"
+				type="button"
+				data-video-close
+				aria-label="Close video"
+			>
+				&times;
+			</button>
+		</div>
+
+		<div class="video-player">
+			<iframe
+				id="video-modal-iframe"
+				src=""
+				title="Fieldwork highlights video"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+			></iframe>
+		</div>
+
+	</div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	const modal = document.getElementById("video-modal");
+	const iframe = document.getElementById("video-modal-iframe");
+	const modalTitle = document.getElementById("video-modal-title");
+
+	const videoButtons = document.querySelectorAll("[data-video-id]");
+	const closeButtons = document.querySelectorAll("[data-video-close]");
+
+	let previouslyFocusedElement = null;
+
+	function openVideo(button) {
+		const videoId = button.dataset.videoId;
+		const videoTitle =
+			button.dataset.videoTitle || "Fieldwork highlights";
+
+		if (!videoId) {
+			return;
+		}
+
+		previouslyFocusedElement = document.activeElement;
+
+		modalTitle.textContent = videoTitle;
+		iframe.title = videoTitle;
+
+		/*
+			YouTube privacy-enhanced embed.
+			The iframe is only loaded after the visitor clicks play.
+		*/
+		iframe.src =
+			"https://www.youtube-nocookie.com/embed/" +
+			encodeURIComponent(videoId) +
+			"?autoplay=1&rel=0";
+
+		modal.hidden = false;
+		document.body.classList.add("video-modal-open");
+
+		const closeButton = modal.querySelector(".video-modal-close");
+
+		if (closeButton) {
+			closeButton.focus();
+		}
+	}
+
+	function closeVideo() {
+		if (modal.hidden) {
+			return;
+		}
+
+		/*
+			Clearing the iframe source stops the video completely.
+		*/
+		iframe.src = "";
+		modal.hidden = true;
+
+		document.body.classList.remove("video-modal-open");
+
+		if (
+			previouslyFocusedElement &&
+			typeof previouslyFocusedElement.focus === "function"
+		) {
+			previouslyFocusedElement.focus();
+		}
+	}
+
+	videoButtons.forEach(function (button) {
+		button.addEventListener("click", function () {
+			openVideo(button);
+		});
+	});
+
+	closeButtons.forEach(function (button) {
+		button.addEventListener("click", closeVideo);
+	});
+
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Escape" && !modal.hidden) {
+			closeVideo();
+		}
+	});
+});
+</script>
 	</body>
 </html>
