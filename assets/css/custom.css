@@ -1065,10 +1065,12 @@ a:hover {
 
 .art-card {
 	flex: 0 0 auto;
-	display: grid;
-	grid-template-columns: max-content;
 
-	width: max-content;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: fit-content;
 	max-width: 85vw;
 	margin: 0;
 
@@ -1089,13 +1091,20 @@ a:hover {
 	background: #ecece8;
 }
 
+/*
+The width: 0 / min-width: 100% combination prevents the
+caption text from making the figure wider than its image.
+*/
 .art-card figcaption {
-	width: 100%;
+	width: 0;
+	min-width: 100%;
 	max-width: 100%;
+
 	padding: 1rem 0.25rem 0;
 	box-sizing: border-box;
+
 	white-space: normal;
-	overflow-wrap: break-word;
+	overflow-wrap: anywhere;
 }
 
 .art-card figcaption span {
@@ -1204,5 +1213,388 @@ a:hover {
 @media screen and (max-width: 900px) {
 	.creative-mediums {
 		grid-template-columns: 1fr;
+	}
+}
+
+/* ----------------------------------------
+   Photography gallery
+---------------------------------------- */
+
+.photography-panel {
+	grid-column: 1 / -1;
+	width: 100%;
+}
+
+/* Space between the three themed rows */
+
+.photography-panel .gallery-section {
+	margin: 0 0 4rem;
+}
+
+.photography-panel .gallery-section:last-child {
+	margin-bottom: 0;
+}
+
+/* Row headings */
+
+.photography-panel .gallery-section h3 {
+	margin: 0 0 1.25rem;
+	padding-left: 4rem;
+
+	color: var(--ocean);
+
+	font-family: "Cormorant Garamond", serif;
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-weight: 600;
+	line-height: 1.1;
+	text-align: left;
+}
+
+/* Allow the artwork to fill the available gallery width */
+
+.photography-panel .gallery-scroll-wrapper {
+	position: relative;
+	padding: 0 4rem;
+}
+
+/* Each themed row scrolls independently */
+
+.photography-panel .horizontal-gallery {
+	display: flex;
+	align-items: flex-start;
+	gap: 1.5rem;
+
+	overflow-x: auto;
+	overflow-y: hidden;
+
+	padding: 0.5rem 0 1.5rem;
+
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+
+	scrollbar-width: thin;
+}
+
+/*
+   Landscape photography cards preserve the natural aspect ratio.
+   The figure width is established by its image.
+*/
+
+.photography-panel .art-card {
+	flex: 0 0 auto;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: fit-content;
+	max-width: 85vw;
+	margin: 0;
+
+	scroll-snap-align: start;
+	text-align: left;
+}
+
+/* Photography is displayed slightly larger than ceramics */
+
+
+/*
+   Captions inherit the width established by the image rather than
+   expanding the figure to fit one long line of text.
+*/
+
+.photography-panel .art-card figcaption {
+	width: 0;
+	min-width: 100%;
+	max-width: 100%;
+
+	box-sizing: border-box;
+	padding: 1rem 0.25rem 0;
+
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+/* Hide caption space while captions are empty */
+
+.photography-panel .art-card figcaption span:empty {
+	display: none;
+}
+
+.photography-panel .art-card figcaption:has(span:empty) {
+	display: none;
+}
+
+/* Future caption styling */
+
+.photography-panel .art-card figcaption span {
+	display: block;
+
+	color: rgba(45, 49, 56, 0.78);
+
+	font-size: 0.95rem;
+	line-height: 1.55;
+}
+
+/* Photography arrows remain in the outside gutters */
+
+.photography-panel .gallery-arrow {
+	position: absolute;
+	top: 16rem;
+	z-index: 3;
+
+	-webkit-appearance: none;
+	appearance: none;
+
+	width: auto;
+	min-width: 0;
+	height: auto;
+	min-height: 0;
+
+	margin: 0;
+	padding: 0;
+
+	border: 0 !important;
+	border-radius: 0 !important;
+	background: transparent !important;
+	box-shadow: none !important;
+
+	color: var(--ocean);
+
+	font-size: 3.5rem;
+	font-weight: 300;
+	line-height: 1;
+	letter-spacing: normal;
+	text-transform: none;
+
+	cursor: pointer;
+
+	transition:
+		transform 0.2s ease,
+		opacity 0.2s ease;
+}
+
+.photography-panel .gallery-arrow::before,
+.photography-panel .gallery-arrow::after {
+	display: none !important;
+	content: none !important;
+}
+
+.photography-panel .gallery-arrow-left {
+	left: 0.35rem;
+}
+
+.photography-panel .gallery-arrow-right {
+	right: 0.35rem;
+}
+
+.photography-panel .gallery-arrow-left:hover,
+.photography-panel .gallery-arrow-left:focus-visible {
+	transform: translateX(-0.2rem);
+	opacity: 0.65;
+}
+
+.photography-panel .gallery-arrow-right:hover,
+.photography-panel .gallery-arrow-right:focus-visible {
+	transform: translateX(0.2rem);
+	opacity: 0.65;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 900px) {
+
+	.photography-panel .photo-frame > img {
+		height: 27rem;
+	}
+
+	.photography-panel .gallery-arrow {
+		top: 13.5rem;
+	}
+}
+
+/* Mobile */
+
+@media screen and (max-width: 736px) {
+
+	.photography-panel .gallery-section {
+		margin-bottom: 3rem;
+	}
+
+	.photography-panel .gallery-section h3 {
+		padding-left: 0;
+		font-size: 2rem;
+	}
+
+	.photography-panel .gallery-scroll-wrapper {
+		padding: 0;
+	}
+
+	.photography-panel .horizontal-gallery {
+		padding-right: 1rem;
+		padding-left: 1rem;
+	}
+
+	.photography-panel .art-card {
+		max-width: 88vw;
+	}
+
+	.photography-panel .photo-frame {
+		max-width: 88vw;
+	}
+
+	.photography-panel .photo-frame > img {
+		width: auto;
+		height: 22rem;
+		max-width: 88vw;
+	}
+
+	.photography-panel .photo-frame::after {
+		right: 0.65rem;
+		bottom: 0.65rem;
+		width: 2.75rem;
+	}
+
+	.photography-panel .gallery-arrow {
+		display: none;
+	}
+}
+/* ----------------------------------------
+   Photography watermark
+---------------------------------------- */
+
+.photography-panel .photo-frame {
+	position: relative;
+	display: block;
+	width: fit-content;
+	max-width: 85vw;
+}
+
+/* Keep the main photograph at its natural proportions */
+
+.photography-panel .photo-frame > img {
+	display: block;
+
+	width: auto;
+	height: 32rem;
+	max-width: 85vw;
+
+	object-fit: contain;
+
+	border-radius: 0.45rem;
+	background: #ecece8;
+}
+
+/* Logo overlay */
+
+.photography-panel .photo-frame::after {
+	content: "";
+
+	position: absolute;
+	right: 1rem;
+	bottom: 1rem;
+
+	width: clamp(3rem, 8%, 5rem);
+	aspect-ratio: 1;
+
+	background:
+		url("../../images/favicon/logo-primary.svg")
+		center / contain
+		no-repeat;
+
+	/* Turn the blue SVG white */
+	filter:
+		brightness(0)
+		invert(1);
+
+	opacity: 0.72;
+
+	pointer-events: none;
+}
+/* ----------------------------------------
+   Mobile sticky navigation
+---------------------------------------- */
+
+@media screen and (max-width: 736px) {
+
+	#nav,
+	#nav.alt {
+		display: block;
+
+		position: sticky;
+		top: 0;
+		z-index: 10000;
+
+		width: 100%;
+		max-width: none;
+
+		margin: 0;
+		padding: 0.55rem 0.75rem;
+
+		overflow-x: auto;
+		overflow-y: hidden;
+
+		background: rgba(248, 248, 244, 0.97);
+		border-radius: 0;
+		box-shadow: 0 0.2rem 0.8rem rgba(13, 59, 102, 0.10);
+
+		-webkit-overflow-scrolling: touch;
+		scrollbar-width: none;
+	}
+
+	/* Hide the horizontal scrollbar in Chrome/Safari */
+
+	#nav::-webkit-scrollbar {
+		display: none;
+	}
+
+	#nav ul {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		width: max-content;
+		min-width: 100%;
+
+		margin: 0;
+		padding: 0;
+	}
+
+	#nav ul li,
+	#nav.alt ul li {
+		flex: 0 0 auto;
+
+		margin: 0 0.15rem;
+		padding: 0;
+	}
+
+	#nav ul li a,
+	#nav.alt ul li a {
+		display: block;
+
+		height: auto;
+		padding: 0.55rem 0.85rem;
+
+		font-size: 0.78rem;
+		line-height: 1.2;
+		white-space: nowrap;
+	}
+
+	/* Remove the template's desktop spacing above the main content */
+
+	#nav + #main {
+		padding-top: 0;
+	}
+
+	/* Prevent section headings being hidden beneath the sticky nav */
+
+	#about,
+	#projects,
+	#skills,
+	#ocean-art,
+	#cv,
+	#contact {
+		scroll-margin-top: 4.5rem;
 	}
 }

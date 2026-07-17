@@ -305,13 +305,29 @@
 		</span>
 	</button>
 
-	<!-- Photography placeholder -->
-	<div class="creative-medium-card creative-medium-placeholder">
-		<div class="creative-placeholder-background">
-			<span class="creative-medium-name">Photography</span>
-			<span class="creative-medium-action">Gallery coming soon</span>
-		</div>
-	</div>
+	<!-- Photography -->
+
+<button
+	class="creative-medium-card"
+	type="button"
+	aria-expanded="false"
+	aria-controls="photography-gallery"
+	data-gallery-toggle="photography-gallery"
+>
+	<img
+		src="images/reef-characters/weedy-seadragon.webp"
+		alt="Weedy seadragon"
+		loading="lazy"
+		decoding="async"
+	>
+
+	<span class="creative-medium-overlay">
+		<span class="creative-medium-name">Photography</span>
+		<span class="creative-medium-action">
+			Browse photography →
+		</span>
+	</span>
+</button>
 
 	<!-- Videography placeholder -->
 	<div class="creative-medium-card creative-medium-placeholder">
@@ -327,7 +343,7 @@
 		class="art-gallery"
 		hidden
 	>
-		>
+	
 			<div class="art-gallery-heading">
 
 				<button
@@ -477,6 +493,405 @@
 			</div>
 		</div>
 
+		<!-- =========================================================
+     Photography gallery
+========================================================= -->
+
+<div
+	id="photography-gallery"
+	class="art-gallery photography-panel"
+	hidden
+>
+	<div class="art-gallery-heading">
+		<button
+			class="gallery-close"
+			type="button"
+			data-gallery-close="photography-gallery"
+			aria-label="Close photography gallery"
+		>
+			&times;
+		</button>
+	</div>
+
+	<!-- =====================================================
+	     Reef characters
+	===================================================== -->
+
+	<div class="gallery-section">
+		<h3>Reef characters</h3>
+
+		<div class="gallery-scroll-wrapper">
+
+			<button
+				class="gallery-arrow gallery-arrow-left"
+				type="button"
+				aria-label="Scroll Reef characters gallery left"
+				data-scroll-direction="-1"
+			>
+				←
+			</button>
+
+			<div class="horizontal-gallery photography-gallery">
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/weedy-seadragon.webp"
+						alt="Weedy seadragon swimming beside marine algae"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span> Weedy seadragon, Melbourne</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/grey-reef-shark.webp"
+						alt="Grey reef shark swimming over a sandy seabed"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Grey reef shark, Kiritimati</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/giant-pacific-octopus.webp"
+						alt="Giant Pacific octopus camouflaged against a rocky reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Giant Pacific Octopus, Vancouver Island</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/porcupine-puffer.webp"
+						alt="Porcupine pufferfish resting beside a reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Porcupine pufferfish, Miami</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/juvenile-sweetlips.webp"
+						alt="Juvenile sweetlips swimming over a reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Juvenile sweetlips, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/blue-tang.webp"
+						alt="Blue tang swimming underwater"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Blue tang, Kiritimati</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/wolf-eel.webp"
+						alt="Wolf eel looking out from a rocky reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Wolf eel,	Vancouver Island</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/reef-characters/puget-sound-crab.webp"
+						alt="Colourful crab on a rocky reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Puget Sound crab, Vancouver Island</span></figcaption>
+				</figure>
+
+			</div>
+
+			<button
+				class="gallery-arrow gallery-arrow-right"
+				type="button"
+				aria-label="Scroll Reef characters gallery right"
+				data-scroll-direction="1"
+			>
+				→
+			</button>
+
+		</div>
+	</div>
+
+	<!-- =====================================================
+	     Tiny wonders
+	===================================================== -->
+
+	<div class="gallery-section">
+		<h3>Tiny wonders</h3>
+
+		<div class="gallery-scroll-wrapper">
+
+			<button
+				class="gallery-arrow gallery-arrow-left"
+				type="button"
+				aria-label="Scroll Tiny wonders gallery left"
+				data-scroll-direction="-1"
+			>
+				←
+			</button>
+
+			<div class="horizontal-gallery photography-gallery">
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/whip-coral-goby.webp"
+						alt="Tiny goby sheltering beneath a whip coral"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Whip coral goby, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/frosted-nudibranch.webp"
+						alt="White frosted nudibranch on a reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Frosted nudibranch, Vancouver Island</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/pipefish.webp"
+						alt="Small pipefish swimming beside coral"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Spotted pipefish, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/brown-nudibranch.webp"
+						alt="Brown nudibranch camouflaged on a reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Brown dorid nudibranch, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/mantis-shrimp.webp"
+						alt="Colourful mantis shrimp peering from its shelter"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Scaly mantis shrimp, Miami</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/clown-nudibranch.webp"
+						alt="Brightly coloured clown nudibranch"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Clown nudibranch, Sydney</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/coral-blenny.webp"
+						alt="Small coral blenny in a mounding coral"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Coral blenny, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/hooded-nudibranches.webp"
+						alt="Hooded nudibranchs feeding underwater"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Hooded nudibranches, Vancouver Island</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/tiny-wonders/vercos-nudibranch.webp"
+						alt="Verco's nudibranch on a rocky reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Verco's nudibranches, Melbourne</span></figcaption>
+				</figure>
+
+			</div>
+
+			<button
+				class="gallery-arrow gallery-arrow-right"
+				type="button"
+				aria-label="Scroll Tiny wonders gallery right"
+				data-scroll-direction="1"
+			>
+				→
+			</button>
+
+		</div>
+	</div>
+
+	<!-- =====================================================
+	     Alien forms
+	===================================================== -->
+
+	<div class="gallery-section">
+		<h3>Alien forms</h3>
+
+		<div class="gallery-scroll-wrapper">
+
+			<button
+				class="gallery-arrow gallery-arrow-left"
+				type="button"
+				aria-label="Scroll Alien forms gallery left"
+				data-scroll-direction="-1"
+			>
+				←
+			</button>
+
+			<div class="horizontal-gallery photography-gallery">
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/alien-forms/mushroom-coral.webp"
+						alt="Close-up pattern of a mushroom coral"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Mushroom coral, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/alien-forms/brain-coral.webp"
+						alt="Close-up view of brain coral ridges"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Brain coral, Kiritimati</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/alien-forms/lobed-cactus-coral.webp"
+						alt="Close-up view of lobed cactus coral polyps"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Lobed cactus coral, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/alien-forms/experimentally-bleached-coral.webp"
+						alt="Experimentally bleached coral fragment"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Experimentally bleached coral, Miami</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/alien-forms/feather-star.webp"
+						alt="Feather star with branching arms underwater"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Feather star, Palau</span></figcaption>
+				</figure>
+
+				<figure class="art-card">
+					<div class="photo-frame">
+					<img
+						src="images/alien-forms/scorpion-fish.webp"
+						alt="Camouflaged scorpionfish resting on a reef"
+						loading="lazy"
+						decoding="async"
+					>
+					</div>
+					<figcaption><span>Scorpionfish, Miami</span></figcaption>
+				</figure>
+
+			</div>
+
+			<button
+				class="gallery-arrow gallery-arrow-right"
+				type="button"
+				aria-label="Scroll Alien forms gallery right"
+				data-scroll-direction="1"
+			>
+				→
+			</button>
+
+		</div>
+	</div>
+
+</div>
 	</div>
 </section>
 
