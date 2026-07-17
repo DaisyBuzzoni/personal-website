@@ -1598,3 +1598,114 @@ caption text from making the figure wider than its image.
 		scroll-margin-top: 4.5rem;
 	}
 }
+/* ----------------------------------------
+   Mobile gallery scrolling fix
+   Keep this at the very end of custom.css
+---------------------------------------- */
+
+@media screen and (max-width: 736px) {
+
+	/*
+	   Allow the gallery containers to shrink inside the
+	   .creative-mediums CSS grid instead of expanding to
+	   the combined width of all their images.
+	*/
+
+	#ocean-art,
+	.ocean-art-section,
+	.creative-mediums,
+	.art-gallery,
+	.gallery-section,
+	.gallery-scroll-wrapper,
+	.horizontal-gallery {
+		min-width: 0;
+		max-width: 100%;
+	}
+
+	/*
+	   Do not clip the swipeable gallery at section level.
+	   The individual gallery row will control its own overflow.
+	*/
+
+	.ocean-art-section {
+		overflow: visible;
+	}
+
+	/*
+	   Make every ceramics and photography row a true
+	   horizontally scrolling touch area.
+	*/
+
+	.horizontal-gallery,
+	.photography-panel .horizontal-gallery {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+
+		width: 100%;
+		max-width: 100%;
+
+		overflow-x: scroll !important;
+		overflow-y: hidden !important;
+
+		padding: 0.5rem 1rem 1.5rem;
+
+		scroll-behavior: smooth;
+		scroll-snap-type: x proximity;
+
+		-webkit-overflow-scrolling: touch;
+		touch-action: pan-x;
+		overscroll-behavior-x: contain;
+	}
+
+	/*
+	   Prevent the cards from shrinking to fit the screen.
+	   Their combined width must exceed the gallery width
+	   for horizontal scrolling to occur.
+	*/
+
+	.horizontal-gallery .art-card,
+	.photography-panel .horizontal-gallery .art-card {
+		flex: 0 0 auto;
+		width: fit-content;
+		max-width: 88vw;
+	}
+
+	/*
+	   Ensure photo wrappers also preserve their width.
+	*/
+
+	.photography-panel .photo-frame {
+		flex: 0 0 auto;
+		width: fit-content;
+		max-width: 88vw;
+	}
+
+	/*
+	   Reapply the intended mobile image sizes.
+	   These rules must come after the later desktop
+	   watermark/image rules in your existing CSS.
+	*/
+
+	.art-card > img {
+		width: auto;
+		height: 22rem;
+		max-width: 88vw;
+	}
+
+	.photography-panel .photo-frame > img {
+		width: auto;
+		height: 22rem;
+		max-width: 88vw;
+	}
+
+	/*
+	   Keep arrows hidden because the rows are now swipeable.
+	*/
+
+	.gallery-arrow,
+	.photography-panel .gallery-arrow {
+		display: none;
+	}
+}
