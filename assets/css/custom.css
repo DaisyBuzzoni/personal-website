@@ -2739,3 +2739,11 @@ button.project-card {
         height: 220px;
     }
 }
+.project-hero-wrapper{
+    position:relative;
+
+    width:100%;
+    max-width:950px;
+
+    margin:0 auto 2.5rem;
+}
