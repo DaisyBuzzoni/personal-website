@@ -2419,8 +2419,14 @@ body.video-modal-open {
         padding-bottom: 2.75rem;
     }
 
+    /* Prevent the credit overlapping the dive counter */
+    .skills-video > .photo-credit {
+        display: none;
+    }
+
     .dive-counter {
         left: 50%;
+        right: auto;
         bottom: 0;
 
         width: max-content;
@@ -2826,7 +2832,7 @@ button.project-card {
 .content-modal {
     position: fixed;
     inset: 0;
-    z-index: 9000;
+    z-index: 20000;
 
     display: flex;
     align-items: center;
@@ -2984,7 +2990,7 @@ so hide the gallery's original heading inside it.
 /* Keep your video modal above the content modal */
 
 .video-modal {
-    z-index: 10000;
+    z-index: 210000;
 }
 
 @media screen and (max-width: 736px) {
@@ -3166,6 +3172,133 @@ so hide the gallery's original heading inside it.
             translateY(18px)
             scale(.99);
 
+    }
+
+}
+/* =========================================================
+   Photography theme chooser
+========================================================= */
+
+.photography-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+
+/* Individual card */
+
+.photography-theme-card {
+    position: relative;
+
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 0 !important;
+    border-radius: 0.9rem;
+
+    background: transparent !important;
+    box-shadow: none !important;
+
+    cursor: pointer;
+}
+
+
+/*
+ * Prevent Stellar's generic button pseudo-elements
+ * from adding borders or backgrounds.
+ */
+
+.photography-theme-card::before,
+.photography-theme-card::after {
+    display: none !important;
+}
+
+
+/* Thumbnail */
+
+.photography-theme-card img {
+    display: block;
+
+    width: 100%;
+    aspect-ratio: 4 / 3;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.35s cubic-bezier(.18, .8, .22, 1);
+}
+
+
+/* Dark image gradient */
+
+.photography-theme-shade {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(8, 31, 48, 0.86) 0%,
+            rgba(8, 31, 48, 0.18) 52%,
+            rgba(8, 31, 48, 0.02) 100%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Theme name */
+
+.photography-theme-title {
+    position: absolute;
+    right: 1.25rem;
+    bottom: 1.15rem;
+    left: 1.25rem;
+
+    color: #ffffff !important;
+
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: left;
+
+    pointer-events: none;
+}
+
+
+/* Hover */
+
+.photography-theme-card:hover img,
+.photography-theme-card:focus-visible img {
+    transform: scale(1.045);
+}
+
+
+/* Keyboard focus */
+
+.photography-theme-card:focus-visible {
+    outline: 3px solid var(--coral) !important;
+    outline-offset: 4px;
+}
+
+
+/* Mobile */
+
+@media screen and (max-width: 736px) {
+
+    .photography-card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .photography-theme-card img {
+        aspect-ratio: 16 / 10;
     }
 
 }

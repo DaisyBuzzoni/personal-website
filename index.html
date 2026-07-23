@@ -1281,31 +1281,129 @@
      Photography gallery
 ========================================================= -->
 
+<!-- =========================================================
+     Photography chooser
+========================================================= -->
+
 <div
-	id="photography-gallery"
-	class="art-gallery photography-panel"
-	hidden
->
-	<div class="art-gallery-heading">
-		<div>
-			<h3>Photography</h3>
-		</div>
-		<button
-			class="gallery-close"
-			type="button"
-			data-gallery-close="photography-gallery"
-			aria-label="Close photography gallery"
-		>
-			&times;
-		</button>
-	</div>
+    id="photography-gallery"
+    class="art-gallery photography-panel"
+    hidden>
+
+    <div class="art-gallery-heading">
+
+        <div>
+            <h3>Photography</h3>
+        </div>
+
+        <button
+            class="gallery-close"
+            type="button"
+            data-gallery-close="photography-gallery"
+            aria-label="Close photography">
+            ×
+        </button>
+
+    </div>
+
+    <div class="photography-card-grid">
+
+        <!-- Reef characters -->
+
+        <button
+            class="photography-theme-card"
+            type="button"
+            data-photography-gallery="reef-characters-gallery"
+            aria-label="Open Reef characters gallery">
+
+            <img
+                src="images/reef-characters/weedy-seadragon.webp"
+                alt=""
+                loading="lazy"
+                decoding="async">
+
+            <span class="photography-theme-shade"></span>
+
+            <span class="photography-theme-title">
+                Reef characters
+            </span>
+
+        </button>
+
+
+        <!-- Tiny wonders -->
+
+        <button
+            class="photography-theme-card"
+            type="button"
+            data-photography-gallery="tiny-wonders-gallery"
+            aria-label="Open Tiny wonders gallery">
+
+            <img
+                src="images/tiny-wonders/whip-coral-goby.webp"
+                alt=""
+                loading="lazy"
+                decoding="async">
+
+            <span class="photography-theme-shade"></span>
+
+            <span class="photography-theme-title">
+                Tiny wonders
+            </span>
+
+        </button>
+
+
+        <!-- Alien forms -->
+
+        <button
+            class="photography-theme-card"
+            type="button"
+            data-photography-gallery="alien-forms-gallery"
+            aria-label="Open Alien forms gallery">
+
+            <img
+                src="images/alien-forms/mushroom-coral.webp"
+                alt=""
+                loading="lazy"
+                decoding="async">
+
+            <span class="photography-theme-shade"></span>
+
+            <span class="photography-theme-title">
+                Alien forms
+            </span>
+
+        </button>
+
+    </div>
+
+</div>
 
 	<!-- =====================================================
 	     Reef characters
 	===================================================== -->
 
-	<div class="gallery-section">
-		<h3>Reef characters</h3>
+	<div
+    id="reef-characters-gallery"
+    class="art-gallery photography-theme-gallery"
+    hidden>
+
+    <div class="art-gallery-heading">
+
+        <div>
+            <h3>Reef characters</h3>
+        </div>
+
+        <button
+            class="gallery-close"
+            type="button"
+            data-gallery-close="reef-characters-gallery"
+            aria-label="Close Reef characters gallery">
+            ×
+        </button>
+
+    </div>
 
 		<div class="gallery-scroll-wrapper">
 
@@ -1434,8 +1532,26 @@
 	     Tiny wonders
 	===================================================== -->
 
-	<div class="gallery-section">
-		<h3>Tiny wonders</h3>
+	<div
+    id="tiny-wonders-gallery"
+    class="art-gallery photography-theme-gallery"
+    hidden>
+
+    <div class="art-gallery-heading">
+
+        <div>
+            <h3>Tiny wonders</h3>
+        </div>
+
+        <button
+            class="gallery-close"
+            type="button"
+            data-gallery-close="tiny-wonders-gallery"
+            aria-label="Close Tiny wonders gallery">
+            ×
+        </button>
+
+    </div>
 
 		<div class="gallery-scroll-wrapper">
 
@@ -1576,8 +1692,26 @@
 	     Alien forms
 	===================================================== -->
 
-	<div class="gallery-section">
-		<h3>Alien forms</h3>
+	<div
+    id="alien-forms-gallery"
+    class="art-gallery photography-theme-gallery"
+    hidden>
+
+    <div class="art-gallery-heading">
+
+        <div>
+            <h3>Alien forms</h3>
+        </div>
+
+        <button
+            class="gallery-close"
+            type="button"
+            data-gallery-close="alien-forms-gallery"
+            aria-label="Close Alien forms gallery">
+            ×
+        </button>
+
+    </div>
 
 		<div class="gallery-scroll-wrapper">
 
@@ -2034,7 +2168,7 @@ modal.classList.remove("closing");
         }
     }
 
-    function closeContentModal() {
+		function closeContentModal() {
     if (
         modal.hidden ||
         !activeContent ||
@@ -2043,16 +2177,30 @@ modal.classList.remove("closing");
         return;
     }
 
+    /*
+     * When viewing a themed Photography gallery,
+     * return to the Photography chooser instead
+     * of closing the whole modal.
+     */
+    if (
+        activeContent.classList.contains(
+            "photography-theme-gallery"
+        )
+    ) {
+        returnToPhotographyChooser();
+        return;
+    }
+
     modal.classList.add("closing");
 
     /*
-     * Keep the content inside the modal while the closing
-     * animation plays.
+     * Keep the content inside the modal while the
+     * closing animation plays.
      */
     setTimeout(function () {
 
         /*
-         * Return the content to exactly where it came from.
+         * Return the content to its original position.
          */
         if (
             originalNextSibling &&
@@ -2067,10 +2215,11 @@ modal.classList.remove("closing");
         }
 
         /*
-         * Galleries were initially hidden in the HTML.
-         * Project panels are hidden by their existing CSS.
+         * Galleries begin hidden in the HTML.
          */
-        if (activeContent.classList.contains("art-gallery")) {
+        if (
+            activeContent.classList.contains("art-gallery")
+        ) {
             activeContent.setAttribute("hidden", "");
         }
 
@@ -2180,6 +2329,170 @@ modal.classList.remove("closing");
         }
     });
 
+	/*
+ * Replace the content currently inside the modal without
+ * closing and reopening the modal itself.
+ *
+ * This is used when a visitor chooses one of the three
+ * Photography themes.
+ */
+
+function swapContentModal(targetContent) {
+
+    if (
+        !targetContent ||
+        !activeContent ||
+        modal.hidden ||
+        modal.classList.contains("closing")
+    ) {
+        return;
+    }
+
+
+    /*
+     * Return the current modal content—Photography's three
+     * cards—to its original place in the document.
+     */
+
+    if (
+        originalNextSibling &&
+        originalNextSibling.parentNode === originalParent
+    ) {
+        originalParent.insertBefore(
+            activeContent,
+            originalNextSibling
+        );
+    } else {
+        originalParent.appendChild(activeContent);
+    }
+
+
+    /*
+     * Hide and reset the Photography chooser after returning it.
+     */
+
+    if (activeContent.classList.contains("art-gallery")) {
+        activeContent.setAttribute("hidden", "");
+    }
+
+    activeContent.classList.remove("active");
+
+
+    /*
+     * Record where the selected themed gallery currently lives,
+     * so closeContentModal() can return it later.
+     */
+
+    activeContent = targetContent;
+    originalParent = targetContent.parentNode;
+    originalNextSibling = targetContent.nextSibling;
+
+
+    /*
+     * Move the selected gallery into the existing modal.
+     */
+
+    targetContent.removeAttribute("hidden");
+    targetContent.classList.add("active");
+
+    modalBody.replaceChildren(targetContent);
+
+    modalBody.scrollTop = 0;
+
+
+    /*
+     * Always start the horizontal gallery at its first image.
+     */
+
+    const horizontalGallery =
+        targetContent.querySelector(".horizontal-gallery");
+
+    if (horizontalGallery) {
+        horizontalGallery.scrollLeft = 0;
+    }
+}
+
+function returnToPhotographyChooser() {
+    const chooser =
+        document.getElementById("photography-gallery");
+
+    if (!chooser || !activeContent) {
+        return;
+    }
+
+    /*
+     * Return the themed gallery to its original position.
+     */
+    if (
+        originalNextSibling &&
+        originalNextSibling.parentNode === originalParent
+    ) {
+        originalParent.insertBefore(
+            activeContent,
+            originalNextSibling
+        );
+    } else {
+        originalParent.appendChild(activeContent);
+    }
+
+    activeContent.setAttribute("hidden", "");
+    activeContent.classList.remove("active");
+
+    /*
+     * Remember the chooser's position before moving it
+     * back into the modal.
+     */
+    originalParent = chooser.parentNode;
+    originalNextSibling = chooser.nextSibling;
+
+    chooser.removeAttribute("hidden");
+    chooser.classList.add("active");
+
+    activeContent = chooser;
+
+    modalBody.replaceChildren(chooser);
+    modalBody.scrollTop = 0;
+
+    /*
+     * Restore the main modal heading.
+     */
+    modalTitle.textContent = "Photography";
+
+    /*
+     * Return keyboard focus to the modal close button.
+     */
+    const modalCloseButton =
+        modal.querySelector(".content-modal-close");
+
+    if (modalCloseButton) {
+        modalCloseButton.focus();
+    }
+}
+/* -----------------------------------------
+   Photography theme cards
+----------------------------------------- */
+
+document
+    .querySelectorAll("[data-photography-gallery]")
+    .forEach(function (card) {
+
+        card.addEventListener("click", function () {
+
+            const targetId =
+                card.dataset.photographyGallery;
+
+            const targetGallery =
+                document.getElementById(targetId);
+
+            if (!targetGallery) {
+                return;
+            }
+
+            swapContentModal(targetGallery);
+
+        });
+
+    });
 });
 </script>
 
