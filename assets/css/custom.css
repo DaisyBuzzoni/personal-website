@@ -4016,5 +4016,8 @@ so hide the gallery's original heading inside it.
     #teaching-mentoring {
         scroll-margin-top: 8rem;
     }
+	#nav {
+        scroll-behavior: smooth;
+    }
 
 }

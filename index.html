@@ -3342,6 +3342,45 @@ document
         });
 
     });
+    /* -----------------------------------------
+   Keep active mobile nav item visible
+----------------------------------------- */
+
+const navList = document.querySelector("#nav ul");
+
+if (navList) {
+
+    const navObserver = new MutationObserver(function () {
+
+        const activeLink =
+            navList.querySelector("a.active");
+
+        if (!activeLink) {
+            return;
+        }
+
+        /*
+         * Only automatically move the nav on mobile.
+         */
+        if (window.matchMedia("(max-width: 736px)").matches) {
+
+            activeLink.scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+                block: "nearest"
+            });
+
+        }
+
+    });
+
+    navObserver.observe(navList, {
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["class"]
+    });
+
+}
 });
 </script>
 
