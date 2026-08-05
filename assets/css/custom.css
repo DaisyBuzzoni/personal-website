@@ -4488,3 +4488,56 @@ border-bottom: none;
     }
 
 }
+/* =========================================================
+   Guaranteed spacing between mobile photography cards
+========================================================= */
+
+@media screen and (max-width: 736px) {
+
+    .content-modal-body
+    .photography-panel
+    .horizontal-gallery {
+        gap: 0 !important;
+        column-gap: 0 !important;
+    }
+
+    .content-modal-body
+    .photography-panel
+    .horizontal-gallery > .art-card {
+        flex: 0 0 84vw !important;
+        width: 84vw !important;
+        max-width: 84vw !important;
+
+        /*
+         * This creates guaranteed visible space after
+         * every photograph.
+         */
+        padding-right: 1rem !important;
+        box-sizing: border-box;
+    }
+
+    .content-modal-body
+    .photography-panel
+    .horizontal-gallery > .art-card:last-child {
+        padding-right: 0 !important;
+    }
+
+    .content-modal-body
+    .photography-panel
+    .photo-frame {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .content-modal-body
+    .photography-panel
+    .photo-frame > img {
+        display: block;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 22rem;
+
+        object-fit: contain;
+    }
+
+}
