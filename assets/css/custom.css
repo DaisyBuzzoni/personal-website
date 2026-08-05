@@ -4461,78 +4461,45 @@ border-bottom: none;
 
 }
 /* =========================================================
-   Mobile photography gallery spacing
+   Mobile themed-photography gallery spacing
 ========================================================= */
 
 @media screen and (max-width: 736px) {
 
     .content-modal-body
-        .photography-panel .horizontal-gallery {
+    .photography-theme-gallery
+    .horizontal-gallery {
         gap: 1rem !important;
         column-gap: 1rem !important;
+
+        padding-left: 0 !important;
+        padding-right: 3rem !important;
     }
 
     .content-modal-body
-        .photography-panel .horizontal-gallery > .art-card {
-        flex: 0 0 82vw;
-        width: 82vw;
-        max-width: 82vw;
-
-        margin-right: 0.25rem;
-    }
-
-    .content-modal-body
-        .photography-panel
-        .horizontal-gallery > .art-card:last-child {
-        margin-right: 0;
-    }
-
-}
-/* =========================================================
-   Guaranteed spacing between mobile photography cards
-========================================================= */
-
-@media screen and (max-width: 736px) {
-
-    .content-modal-body
-    .photography-panel
-    .horizontal-gallery {
-        gap: 0 !important;
-        column-gap: 0 !important;
-    }
-
-    .content-modal-body
-    .photography-panel
+    .photography-theme-gallery
     .horizontal-gallery > .art-card {
-        flex: 0 0 84vw !important;
-        width: 84vw !important;
-        max-width: 84vw !important;
+        flex: 0 0 82vw !important;
 
-        /*
-         * This creates guaranteed visible space after
-         * every photograph.
-         */
-        padding-right: 1rem !important;
-        box-sizing: border-box;
+        width: 82vw !important;
+        max-width: 82vw !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
     .content-modal-body
-    .photography-panel
-    .horizontal-gallery > .art-card:last-child {
-        padding-right: 0 !important;
-    }
-
-    .content-modal-body
-    .photography-panel
+    .photography-theme-gallery
     .photo-frame {
         width: 100% !important;
         max-width: 100% !important;
     }
 
     .content-modal-body
-    .photography-panel
+    .photography-theme-gallery
     .photo-frame > img {
         display: block;
+
         width: 100% !important;
         max-width: 100% !important;
         height: 22rem;
