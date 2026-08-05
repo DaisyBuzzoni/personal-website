@@ -1453,9 +1453,19 @@ caption text from making the figure wider than its image.
 	}
 
 	.photography-panel .horizontal-gallery {
-		padding-right: 1rem;
-		padding-left: 1rem;
-	}
+
+        padding-left: 1rem;
+        padding-right: 3rem;
+
+        scroll-padding-left: 1rem;
+
+    }
+
+    .photography-panel .art-card {
+
+        flex: 0 0 88vw;
+
+    }
 
 	.photography-panel .art-card {
 		max-width: 88vw;
