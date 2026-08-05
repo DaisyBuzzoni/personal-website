@@ -4403,3 +4403,60 @@ border-bottom: none;
     box-shadow: none !important;
 
 }
+/* =========================================================
+   Mobile gallery: show a sliver of the next item
+   Keep this at the absolute end of custom.css
+========================================================= */
+
+@media screen and (max-width: 736px) {
+
+    /* Both ceramics and photography rows */
+    .content-modal-body .horizontal-gallery {
+        gap: 1rem;
+
+        padding-left: 0;
+        padding-right: 3.5rem;
+
+        scroll-padding-left: 0;
+    }
+
+    /*
+     * Each card occupies less than the available width,
+     * leaving the beginning of the next card visible.
+     */
+    .content-modal-body .horizontal-gallery > .art-card,
+    .content-modal-body .photography-panel
+        .horizontal-gallery > .art-card {
+        flex: 0 0 82vw;
+        width: 82vw;
+        max-width: 82vw;
+    }
+
+    /* Ceramics images */
+    .content-modal-body
+        .horizontal-gallery > .art-card > img {
+        width: 100%;
+        max-width: 100%;
+        height: 22rem;
+
+        object-fit: contain;
+    }
+
+    /* Photography image wrapper */
+    .content-modal-body
+        .photography-panel .photo-frame {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* Photography images */
+    .content-modal-body
+        .photography-panel .photo-frame > img {
+        width: 100%;
+        max-width: 100%;
+        height: 22rem;
+
+        object-fit: contain;
+    }
+
+}
