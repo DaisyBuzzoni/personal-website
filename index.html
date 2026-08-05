@@ -3014,16 +3014,14 @@ modal.classList.remove("closing");
         /*
          * Remove the hidden attribute used by the galleries.
          */
-        content.removeAttribute("hidden");
-
-        /*
-         * Project panels no longer need their old active class,
-         * but removing it is harmless and keeps state tidy.
-         */
         content.classList.remove("active");
 
-        modalBody.appendChild(content);
-
+/*
+ * Move it into the hidden modal first, then reveal it.
+ * This prevents it flashing in its original page position.
+ */
+modalBody.appendChild(content);
+content.removeAttribute("hidden");
         modal.hidden = false;
         document.body.classList.add("content-modal-open");
 
@@ -3305,13 +3303,27 @@ function swapContentModal(targetContent) {
      * Move the selected gallery into the existing modal.
      */
 
-    targetContent.removeAttribute("hidden");
     targetContent.classList.add("active");
 
-    modalBody.replaceChildren(targetContent);
+/*
+ * Put the gallery inside the modal before revealing it.
+ */
+modalBody.replaceChildren(targetContent);
+targetContent.removeAttribute("hidden");
 
     modalBody.scrollTop = 0;
+/*
+ * Use the selected photography theme as the modal title.
+ */
+const galleryHeading =
+    targetContent.querySelector(
+        ".art-gallery-heading h3"
+    );
 
+if (galleryHeading) {
+    modalTitle.textContent =
+        galleryHeading.textContent.trim();
+}
 
     /*
      * Always start the horizontal gallery at its first image.

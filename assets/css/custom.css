@@ -1726,8 +1726,20 @@ caption text from making the figure wider than its image.
 	*/
 
 	.gallery-arrow,
-	.photography-panel .gallery-arrow {
-		display: none;
+    .photography-panel .gallery-arrow {
+
+        display: flex;
+
+        width: 2.25rem;
+        height: 2.25rem;
+
+        font-size: 2rem;
+
+        opacity: 0.45;
+
+        pointer-events: none;
+
+        top: 11rem;
 	}
 }
 /* ----------------------------------------
@@ -4337,5 +4349,47 @@ border-bottom: none;
 
         transform: none;
     }
+
+}
+/* =========================================================
+   Visible gallery arrows inside modal windows
+========================================================= */
+
+.content-modal-body .gallery-arrow,
+.content-modal-body .photography-panel .gallery-arrow {
+    color: var(--ocean) !important;
+}
+.content-modal-body .gallery-arrow,
+.content-modal-body .photography-panel .gallery-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 3rem;
+    height: 3rem;
+
+    color: var(--ocean) !important;
+    background: rgba(248, 248, 244, 0.9) !important;
+    border: 1px solid rgba(13, 59, 102, 0.18) !important;
+    border-radius: 50% !important;
+
+    box-shadow: 0 0.4rem 1rem rgba(13, 59, 102, 0.12) !important;
+}
+.content-modal-body .gallery-arrow:hover,
+.content-modal-body .gallery-arrow:focus-visible {
+    color: #ffffff !important;
+    background: var(--sea-glass) !important;
+    border-color: var(--sea-glass) !important;
+    opacity: 1;
+}
+.content-modal-body .gallery-arrow,
+.content-modal-body .photography-panel .gallery-arrow {
+
+    color: var(--ocean) !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
 
 }
